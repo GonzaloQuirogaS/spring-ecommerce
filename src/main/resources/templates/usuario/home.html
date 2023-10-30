@@ -37,7 +37,7 @@
                     <p class="card-text" th:text="${producto.nombre}"></p>
                 </div>
                 <div class="card-footer">
-                    <a href="productohome.html" class="btn btn-success">Ver producto</a>
+                    <a th:href="@{/productohome/{id} (id=${producto.id}) }" class="btn btn-success">Ver producto</a>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
 
 <!-- Bootstrap core JavaScript -->
 <script th:src="@{vendor/jquery/jquery.min.js}"></script>
-<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{vendor/bootstr    ap/js/bootstrap.bundle.min.js}"></script>
 
 </body>
 
