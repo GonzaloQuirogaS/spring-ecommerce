@@ -54,7 +54,8 @@
                             <td th:text="${dorden.precio}"></td>
                             <td th:text="${dorden.cantidad}"></td>
                             <td th:text="${dorden.total}"></td>
-                            <td><a th:href="@{/delete/cart/{id} (id=${dorden.producto.id})}" class="btn btn-danger">Quitar</a></td>
+                            <td><a th:href="@{/delete/cart/{id} (id=${dorden.producto.id})}" class="btn btn-danger">Quitar</a>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -65,21 +66,22 @@
 
                     <ul class="list-group">
                         <li class="list-group-item"><h5 th:text="${orden.total}">Total: $ 10</h5></li>
-                        <a href="resumenorden.html" class="btn btn-dark">Ver Orden</a>
+                        <a th:href="@{/order}" class="btn btn-dark">Ver Orden</a>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /.container -->
+</div>
 
-    <!-- Footer -->
-    <div th:include="usuario/template_usuario.html::footer"></div>
+<!-- /.container -->
 
-    <!-- Bootstrap core JavaScript -->
-    <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-    <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- Footer -->
+<div th:include="usuario/template_usuario.html::footer"></div>
 
+<!-- Bootstrap core JavaScript -->
+<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>
 
