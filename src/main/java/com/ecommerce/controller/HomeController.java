@@ -3,7 +3,9 @@ package com.ecommerce.controller;
 import com.ecommerce.model.DetalleOrden;
 import com.ecommerce.model.Orden;
 import com.ecommerce.model.Producto;
+import com.ecommerce.model.Usuario;
 import com.ecommerce.repository.ProductoRepository;
+import com.ecommerce.service.IUsuarioService;
 import com.ecommerce.service.ProductoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +26,9 @@ public class HomeController {
 
     @Autowired
     private ProductoService productoService;
+
+    @Autowired
+    private IUsuarioService usuarioService;
 
     //Almacenar detalles de orden
     List<DetalleOrden> detalles = new ArrayList<DetalleOrden>();
@@ -73,7 +78,7 @@ public class HomeController {
         Integer idProducto = producto.getId();
         boolean ingresado = detalles.stream().anyMatch(p -> p.getProducto().getId() == idProducto);
 
-        if (!ingresado){
+        if (!ingresado) {
             detalles.add(detalleOrden);
         }
 
@@ -114,7 +119,7 @@ public class HomeController {
     }
 
     @GetMapping("/getCart")
-    public String getCart(Model model){
+    public String getCart(Model model) {
 
         model.addAttribute("cart", detalles);
         model.addAttribute("orden", orden);
@@ -123,7 +128,14 @@ public class HomeController {
     }
 
     @GetMapping("/order")
-    public String order(){
+    public String order(Model model) {
+
+        Usuario usuario = usuarioService.findById(1).get();
+
+        model.addAttribute("cart", detalles);
+        model.addAttribute("orden", orden);
+        model.addAttribute("usuario",usuario);
+
         return "usuario/resumenorden";
     }
 
