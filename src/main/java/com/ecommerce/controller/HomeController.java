@@ -4,7 +4,6 @@ import com.ecommerce.model.DetalleOrden;
 import com.ecommerce.model.Orden;
 import com.ecommerce.model.Producto;
 import com.ecommerce.model.Usuario;
-import com.ecommerce.repository.ProductoRepository;
 import com.ecommerce.service.IUsuarioService;
 import com.ecommerce.service.ProductoService;
 import org.slf4j.Logger;
