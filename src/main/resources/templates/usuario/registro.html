@@ -14,7 +14,6 @@
     <!-- Custom styles for this template -->
     <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
 </head>
-<body>
 
 <body>
 
@@ -53,7 +52,7 @@
             </div>
         </div>
     </div>
-    <form action="#" method="post">
+    <form th:action="@{/usuario/save}" method="post">
         <div class="form-group">
             <label for="nombres">Nombres:</label> <input type="text"
                                                          class="form-control" id="nombre" name="nombre" required
