@@ -9,10 +9,10 @@
     <title>ecommerce</title>
 
     <!-- Bootstrap core CSS -->
-    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+    <link th:href="@{css/heroic-features.css}" rel="stylesheet">
 </head>
 
 <body>
@@ -29,8 +29,6 @@
                        autocomplete="off">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
             </form>
-
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -71,6 +69,7 @@
                             aria-haspopup="true" aria-expanded="false"> USER </a>
                         <div class="dropdown-menu"
                              aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" th:href="@{/usuario/compras}">Compras</a>
                             <a class="dropdown-item" th:href="@{/getCart}">Carrito</a>
                         </div>
                     </li>
@@ -93,8 +92,8 @@
 
 
 <!-- Bootstrap core JavaScript -->
-<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
 
 </body>
 
