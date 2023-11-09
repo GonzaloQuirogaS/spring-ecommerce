@@ -106,8 +106,10 @@
 </head>
 <body class="goto-here">
 
-<div th:include="usuario/template_usuario.html::header-user"></div>
 
+<div th:include="usuario/template_usuario.html::header" th:if="${sesion==null}"></div>
+
+<div th:include="usuario/template_usuario.html::header-user" th:unless="${sesion==null}"></div>
 
 
 <div class="hero-wrap hero-bread" style="background-image: url('../../../images/bg_6.jpeg');">
@@ -125,7 +127,7 @@
 
 <section class="ftco-section">
     <div class="container">
-        <div class="row" >
+        <div class="row">
             <div class="col-lg-6 mb-5 ftco-animate">
                 <a th:src="@{/images/{img} (img=${producto.imagen}) }"><img
                         th:src="@{/images/{img} (img=${producto.imagen}) }" class="img-fluid"
@@ -156,7 +158,8 @@
                         </div>
                     </div>
 
-                    <p><a class="btn btn-black py-3 px-5" onclick="document.getElementById('form').submit()">Añadir al
+                    <p><a class="btn btn-black py-3 px-5" onclick="document.getElementById('form').submit()"
+                          th:unless="${sesion==null}">Añadir al
                         carrito</a></p>
 
 

@@ -34,7 +34,8 @@ public class ProductoController {
     private IUsuarioService usuarioService;
 
     @GetMapping("")
-    public String show(Model model) {
+    public String show(Model model, HttpSession session) {
+        model.addAttribute("session", session.getAttribute("idusuario"));
         model.addAttribute("productos", productoService.findAll());
         return "productos/show";
     }

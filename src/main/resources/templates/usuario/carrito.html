@@ -32,60 +32,7 @@
 
 <div th:include="usuario/template_usuario.html::header-user"></div>
 
-<!-- Page Content -->
-<!--<div class="container">-->
-
-
-<!--    &lt;!&ndash; Page Heading/Breadcrumbs &ndash;&gt;-->
-<!--    <h1 class="mt-4 mb-3">-->
-<!--        Spring eCommerce <small>Carrito</small>-->
-<!--    </h1>-->
-
-<!--    <ol class="breadcrumb">-->
-<!--        <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>-->
-<!--        <li class="breadcrumb-item active">Carrito</li>-->
-<!--    </ol>-->
-
-<!--    &lt;!&ndash; Blog Post &ndash;&gt;-->
-<!--    <div class="card mb-4">-->
-<!--        <div class="card-body">-->
-<!--            <div class="row">-->
-<!--                <div class="col-lg-9">-->
-<!--                    <table class="table">-->
-<!--                        <thead>-->
-<!--                        <tr>-->
-<!--                            <th scope="col">Producto</th>-->
-<!--                            <th scope="col">Precio</th>-->
-<!--                            <th scope="col">Cantidad</th>-->
-<!--                            <th scope="col">Total</th>-->
-<!--                            <th scope="col">Acción</th>-->
-<!--                        </tr>-->
-<!--                        </thead>-->
-<!--                        <tbody>-->
-<!--                        <tr th:each="dorden:${cart}">-->
-<!--                            <td th:text="${dorden.nombre}"></td>-->
-<!--                            <td th:text="${dorden.precio}"></td>-->
-<!--                            <td th:text="${dorden.cantidad}"></td>-->
-<!--                            <td th:text="${dorden.total}"></td>-->
-<!--                            <td><a th:href="@{/delete/cart/{id} (id=${dorden.producto.id})}" class="btn btn-danger">Quitar</a>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        </tbody>-->
-<!--                    </table>-->
-<!--                </div>-->
-
-<!--                <div class="col-lg-3">-->
-<!--                    <h2 class="card-title">SUBTOTAL</h2>-->
-
-<!--                    <ul class="list-group">-->
-<!--                        <li class="list-group-item"><h5 th:text="${orden.total}"></h5></li>-->
-<!--                        <a th:href="@{/order}" class="btn btn-dark">Ver Orden</a>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+<
 <div class="hero-wrap hero-bread" style="background-image: url('images/bg_6.jpeg');">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -105,9 +52,9 @@
                         <thead class="thead-primary">
                         <tr class="text-center">
                             <th>&nbsp;</th>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
                             <th>Total</th>
                         </tr>
                         </thead>
@@ -138,7 +85,7 @@
         <div class="row justify-content-center">
             <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
                 <div class="cart-total mb-3">
-                    <h3>Cart Totals</h3>
+                    <h3>Total</h3>
                     <p class="d-flex">
                         <span>Subtotal</span>
                         <span th:text="${'$' + orden.total}"></span>
