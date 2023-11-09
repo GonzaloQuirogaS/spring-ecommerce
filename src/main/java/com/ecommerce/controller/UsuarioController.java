@@ -5,7 +5,6 @@ import com.ecommerce.model.Usuario;
 import com.ecommerce.service.IOrdenService;
 import com.ecommerce.service.IUsuarioService;
 import jakarta.servlet.http.HttpSession;
-import org.aspectj.weaver.ast.Or;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +42,7 @@ public class UsuarioController {
     public String save(Usuario usuario) {
         log.info("Usuario registro: {}", usuario);
         usuario.setTipo("USER");
+        usuario.setPassword(usuario.getPassword());
         usuarioService.save(usuario);
         return "redirect:/";
     }
@@ -62,7 +62,7 @@ public class UsuarioController {
 
         if (user.isPresent()) {
             session.setAttribute("idusuario", user.get().getId());
-            if (user.get().getTipo().equals("admin")) {
+            if (user.get().getTipo().equals("ADMIN")) {
                 return "redirect:/administrador";
             } else {
                 return "redirect:/";
@@ -98,7 +98,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/cerrar")
-    public String cerrarSesion(HttpSession session){
+    public String cerrarSesion(HttpSession session) {
         session.removeAttribute("idusuario");
 
         return "redirect:/";

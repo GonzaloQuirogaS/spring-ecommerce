@@ -1,77 +1,236 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="es" xmlns:th="http://www.thymeleaf.org">-->
+
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+<!--    <meta name="description" content="">-->
+<!--    <meta name="author" content="">-->
+<!--    <title>ecommerce</title>-->
+
+<!--    &lt;!&ndash; Bootstrap core CSS &ndash;&gt;-->
+<!--    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">-->
+
+<!--    &lt;!&ndash; Custom styles for this template &ndash;&gt;-->
+<!--    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div th:include="/usuario/template_usuario.html::header"></div>-->
+
+<!--&lt;!&ndash; Page Content &ndash;&gt;-->
+<!--<div class="container">-->
+
+<!--    &lt;!&ndash; Page Heading/Breadcrumbs &ndash;&gt;-->
+<!--    <h1 class="mt-4 mb-3">-->
+<!--        Spring eCommerce <small>Producto</small>-->
+<!--    </h1>-->
+
+<!--    <ol class="breadcrumb">-->
+<!--        <li class="breadcrumb-item"><a th:href="@{/ }">Home</a></li>-->
+<!--        <li class="breadcrumb-item active">Producto</li>-->
+<!--    </ol>-->
+
+<!--    &lt;!&ndash; Blog Post &ndash;&gt;-->
+<!--    <div class="card mb-4">-->
+<!--        <div class="card-body">-->
+<!--            <div class="row">-->
+<!--                <div class="col-lg-6">-->
+<!--                    <a href="#"> <img class="img-fluid rounded" th:src="@{/images/{img} (img=${producto.imagen}) }"-->
+<!--                                      alt="">-->
+<!--                    </a>-->
+<!--                </div>-->
+<!--                <div class="col-lg-6">-->
+<!--                    <form th:action="@{/cart}" method="POST">-->
+<!--                        <input type="hidden" th:value="${producto.id}" name="id">-->
+<!--                        <h2 class="card-title" th:text="${producto.nombre}"></h2>-->
+
+<!--                        <ul class="list-group">-->
+<!--                            <li class="list-group-item"><h5 th:text="|Precio: | + ${producto.precio}"></h5></li>-->
+<!--                            <li class="list-group-item">-->
+<!--                                <p th:text="|Descripcion: | + ${producto.descripcion}"></p>-->
+<!--                            </li>-->
+<!--                            <li class="list-group-item"><h6>-->
+<!--                                Cantidad: <input type="number" id="cantidad" name="cantidad" autocomplete="off" min="1"-->
+<!--                                                 max="5" value="1">-->
+<!--                            </h6></li>-->
+<!--                        </ul>-->
+
+<!--                        <button type="submit" class="btn btn-dark">Añadir al carrito</button>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+<!--</div>-->
+<!--&lt;!&ndash; /.container &ndash;&gt;-->
+
+<!--&lt;!&ndash; Footer &ndash;&gt;-->
+<!--<div th:include="usuario/template_usuario.html::footer"></div>-->
+
+<!--&lt;!&ndash; Bootstrap core JavaScript &ndash;&gt;-->
+<!--<script th:src="@{/vendor/jquery/jquery.min.js}"></script>-->
+<!--<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>-->
+
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-
 <head>
+    <title>Ecommerce</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>ecommerce</title>
 
-    <!-- Bootstrap core CSS -->
-    <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link th:href="@{/css/heroic-features.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/open-iconic-bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+
+    <link rel="stylesheet" th:href="@{/css/aos.css}">
+
+    <link rel="stylesheet" th:href="@{/css/ionicons.min.css}">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap-datepicker.css}">
+    <link rel="stylesheet" th:href="@{/css/jquery.timepicker.css}">
+
+
+    <link rel="stylesheet" th:href="@{/css/flaticon.css}">
+    <link rel="stylesheet" th:href="@{/css/icomoon.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-<body>
-<div th:include="/usuario/template_usuario.html::header"></div>
+<body class="goto-here">
 
-<!-- Page Content -->
-<div class="container">
+<div th:include="usuario/template_usuario.html::header-user"></div>
 
-    <!-- Page Heading/Breadcrumbs -->
-    <h1 class="mt-4 mb-3">
-        Spring eCommerce <small>Producto</small>
-    </h1>
 
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a th:href="@{/ }">Home</a></li>
-        <li class="breadcrumb-item active">Producto</li>
-    </ol>
 
-    <!-- Blog Post -->
-    <div class="card mb-4">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-6">
-                    <a href="#"> <img class="img-fluid rounded" th:src="@{/images/{img} (img=${producto.imagen}) }"
-                                      alt="">
-                    </a>
-                </div>
-                <div class="col-lg-6">
-                    <form th:action="@{/cart}" method="POST">
-                        <input type="hidden" th:value="${producto.id}" name="id">
-                        <h2 class="card-title" th:text="${producto.nombre}"></h2>
-
-                        <ul class="list-group">
-                            <li class="list-group-item"><h5 th:text="|Precio: | + ${producto.precio}"></h5></li>
-                            <li class="list-group-item">
-                                <p th:text="|Descripcion: | + ${producto.descripcion}"></p>
-                            </li>
-                            <li class="list-group-item"><h6>
-                                Cantidad: <input type="number" id="cantidad" name="cantidad" autocomplete="off" min="1"
-                                                 max="5" value="1">
-                            </h6></li>
-                        </ul>
-
-                        <button type="submit" class="btn btn-dark">Añadir al carrito</button>
-                    </form>
-                </div>
+<div class="hero-wrap hero-bread" style="background-image: url('../../../images/bg_6.jpeg');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a th:href="@{/}">Home</a></span> <span class="mr-2"><a
+                        href="">Producto</a></span></p>
+                <h1 class="mb-0 bread">PRODUCTO</h1>
             </div>
         </div>
     </div>
-
-
 </div>
-<!-- /.container -->
 
-<!-- Footer -->
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row" >
+            <div class="col-lg-6 mb-5 ftco-animate">
+                <a th:src="@{/images/{img} (img=${producto.imagen}) }"><img
+                        th:src="@{/images/{img} (img=${producto.imagen}) }" class="img-fluid"
+                        alt="Colorlib Template"></a>
+            </div>
+            <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+                <form id="form" th:action="@{/cart}" method="POST">
+                    <input type="hidden" th:value="${producto.id}" name="id">
+                    <h2 th:text="${producto.nombre}"></h2>
+
+                    <p class="price"><span th:text="|Precio: | + ${'$'+producto.precio}"></span></p>
+                    <p th:text="${producto.descripcion}"></p>
+
+                    <div class="row mt-4">
+
+                        <div class="w-100"></div>
+                        <div class="input-group col-md-6 d-flex mb-3">
+	             	<span class="input-group-btn mr-2">
+                            Cantidad: <input type="number" id="cantidad" name="cantidad" autocomplete="off" min="1"
+                                             max="5" value="1">
+	             	</span>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-md-12">
+
+                            <p style="color: #000;" min="1"
+                               max="5" value="1" th:text="|Stock: | + ${producto.cantidad}"></p>
+                        </div>
+                    </div>
+
+                    <p><a class="btn btn-black py-3 px-5" onclick="document.getElementById('form').submit()">Añadir al
+                        carrito</a></p>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <div th:include="usuario/template_usuario.html::footer"></div>
 
-<!-- Bootstrap core JavaScript -->
-<script th:src="@{/vendor/jquery/jquery.min.js}"></script>
-<script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
 
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.easing.1.3.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<script src="/js/aos.js"></script>
+<script src="/js/jquery.animateNumber.min.js"></script>
+<script src="/js/bootstrap-datepicker.js"></script>
+<script src="/js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="/js/google-map.js"></script>
+<script src="/js/main.js"></script>
+
+<script>
+    $(document).ready(function () {
+
+        var quantitiy = 0;
+        $('.quantity-right-plus').click(function (e) {
+
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#quantity').val());
+
+            // If is not undefined
+
+            $('#quantity').val(quantity + 1);
+
+
+            // Increment
+
+        });
+
+        $('.quantity-left-minus').click(function (e) {
+            // Stop acting like a button
+            e.preventDefault();
+            // Get the field name
+            var quantity = parseInt($('#quantity').val());
+
+            // If is not undefined
+
+            // Increment
+            if (quantity > 0) {
+                $('#quantity').val(quantity - 1);
+            }
+        });
+
+    });
+</script>
 </body>
 </html>
