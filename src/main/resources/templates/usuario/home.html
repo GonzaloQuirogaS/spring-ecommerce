@@ -60,7 +60,7 @@
                             <h3><a href="#" th:text="${producto.nombre}"></a></h3>
                             <div class="d-flex">
                                 <div class="pricing">
-                                    <p class="price"><span class="price-sale" th:text="${producto.precio}"></span>
+                                    <p class="price"><span class="price-sale" th:text="|Precio: | + ${producto.precio}"></span>
                                     </p>
                                 </div>
                             </div>
