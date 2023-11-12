@@ -1,17 +1,12 @@
 package com.ecommerce.controller;
 
-import com.ecommerce.model.DetalleOrden;
-import com.ecommerce.model.Orden;
-import com.ecommerce.model.Producto;
-import com.ecommerce.model.Usuario;
-import com.ecommerce.service.IDetalleOrdenService;
-import com.ecommerce.service.IOrdenService;
-import com.ecommerce.service.IUsuarioService;
-import com.ecommerce.service.ProductoService;
+import com.ecommerce.model.*;
+import com.ecommerce.service.*;
 import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -39,6 +34,10 @@ public class HomeController {
 
     @Autowired
     private IDetalleOrdenService detalleOrdenService;
+
+
+    @Autowired
+    private IDatosFacturacionService datosFacturacionService;
 
     //Almacenar detalles de orden
     List<DetalleOrden> detalles = new ArrayList<DetalleOrden>();
@@ -90,7 +89,6 @@ public class HomeController {
         detalleOrden.setTotal(producto.getPrecio() * cantidad);
         detalleOrden.setProducto(producto);
 
-        //Validaciones
         Integer idProducto = producto.getId();
         boolean ingresado = detalles.stream().anyMatch(p -> p.getProducto().getId() == idProducto);
 
@@ -156,6 +154,42 @@ public class HomeController {
         return "usuario/resumenorden";
     }
 
+    @GetMapping("/checkout")
+    public String checkout(Model model, HttpSession session) {
+
+        Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
+
+        model.addAttribute("cart", detalles);
+        model.addAttribute("orden", orden);
+        model.addAttribute("usuario", usuario);
+
+        return "usuario/checkout";
+
+    }
+
+    @PostMapping("/checkout/save")
+    public String save(DatosFacturacion datosFacturacion) {
+
+        datosFacturacion.setCalle(datosFacturacion.getCalle());
+        datosFacturacion.setCiudad(datosFacturacion.getCiudad());
+        datosFacturacion.setCodigoPostal(datosFacturacion.getCodigoPostal());
+        datosFacturacion.setDni(datosFacturacion.getDni());
+        datosFacturacion.setNumeroTarjeta(datosFacturacion.getNumeroTarjeta());
+        datosFacturacion.setPais(datosFacturacion.getPais());
+        datosFacturacion.setTelefono(datosFacturacion.getTelefono());
+        datosFacturacion.setFechaVencimiento(datosFacturacion.getFechaVencimiento());
+        datosFacturacion.setCodigoSeguridad(datosFacturacion.getCodigoSeguridad());
+
+        datosFacturacionService.save(datosFacturacion);
+
+        return "redirect:/usuario/exito";
+    }
+
+    @GetMapping("/usuario/exito")
+        public String exito(){
+        return "usuario/exito";
+        }
+
     @GetMapping("/saveOrder")
     public String saveOrder(HttpSession session) {
 
@@ -177,7 +211,7 @@ public class HomeController {
         orden = new Orden();
         detalles.clear();
 
-        return "redirect:/";
+        return "redirect:/checkout";
     }
 
     @PostMapping("/search")

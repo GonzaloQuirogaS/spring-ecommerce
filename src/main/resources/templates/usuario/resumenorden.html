@@ -28,7 +28,7 @@
 </head>
 
 <body>
-<div th:include="usuario/template_usuario.html::header" ></div>
+<div th:include="usuario/template_usuario.html::header-user"></div>
 
 <div class="hero-wrap hero-bread" style="background-image: url('images/bg_6.jpeg');">
     <div class="container">
@@ -44,57 +44,61 @@
 <div class="container">
 
     <!-- Blog Post -->
-    <div class="card mb-4">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-9">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            DATOS ORDEN
-                        </h5>
-                        <h6 th:text="|Nombre: | + ${usuario.nombre}"></h6>
-                        <h6 th:text="|Correo: | + ${usuario.email}"></h6>
-                        <h6 th:text="|Direccion: | + ${usuario.direccion}"></h6>
+    <div class="card mb-4 mt-4  ">
 
-                        <h5 class="card-title">
-                            PRODUCTOS
-                        </h5>
-                        <div class="alert alert-light" role="alert">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th scope="col">Producto</th>
-                                    <th scope="col">Precio</th>
-                                    <th scope="col">Cantidad</th>
-                                    <th scope="col">Total</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="dtorden:${cart}">
-                                    <td th:text="${dtorden.nombre}"></td>
-                                    <td th:text="${dtorden.precio}"></td>
-                                    <td th:text="${dtorden.cantidad}"></td>
-                                    <td th:text="${dtorden.total}"></td>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                DATOS ORDEN
+                            </h5>
+                            <h6 th:text="|Nombre: | + ${usuario.nombre}"></h6>
+                            <h6 th:text="|Correo: | + ${usuario.email}"></h6>
+                            <h6 th:text="|Direccion: | + ${usuario.direccion}"></h6>
 
-                                </tr>
-                                </tbody>
-                            </table>
+                            <h5 class="card-title">
+                                PRODUCTOS
+                            </h5>
+                            <div class="alert alert-light" role="alert">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Producto</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">Cantidad</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="dtorden:${cart}">
+                                        <input type="hidden" name="id" id="id" th:value="${dtorden.id}">
+                                        <td name="nombre" id="nombre" th:text="${dtorden.nombre}"></td>
+                                        <td name="title" id="title" th:text="${dtorden.precio}"></td>
+                                        <td name="quantity" id="quantity" th:text="${dtorden.cantidad}"></td>
+                                        <td name="unitPrice" id="unitPrice" th:text="${dtorden.total}"></td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
+                    </div>
 
+
+                    <div class="col-lg-3">
+                        <h2 class="card-title">Resumen Orden</h2>
+
+                        <ul class="list-group">
+                            <li class="list-group-item mb-4"><h5 th:text="|Total: | + ${orden.   total}"></h5></li>
+                            <a th:href="@{saveOrder}" class="btn btn-dark">Confirmar Orden</a>
+
+                        </ul>
                     </div>
                 </div>
-
-
-                <div class="col-lg-3">
-                    <h2 class="card-title">Resumen Orden</h2>
-
-                    <ul class="list-group">
-                        <li class="list-group-item"><h5 th:text="|Total: | + ${orden.   total}"></h5></li>
-                        <a th:href="@{saveOrder}" class="btn btn-dark">Generar</a>
-                    </ul>
-                </div>
             </div>
-        </div>
+
     </div>
 </div>
 
