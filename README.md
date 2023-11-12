@@ -62,6 +62,8 @@ Para ejecutar el proyecto se tiene que ejecutar la clase main llamada "SpringEco
 De esta forma se inicia en forma local y se puede acceder en [Local Host](http://localhost:8080) para verlo en el navegador.
 
 
+## Descarga de XAMPP
+Acceder a [XAMPP Download](https://www.apachefriends.org/es/download.html)
 
 ## Documentación de Spring
 
