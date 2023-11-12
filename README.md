@@ -46,7 +46,7 @@ Fue un proyecto en el cual se presentaron muchas dificultades y desafios de los 
 
 - **git**
 
-### Screenshot Home
+## Screenshot Home
 
 ![Home](/images/home.png)
 
@@ -55,7 +55,7 @@ Fue un proyecto en el cual se presentaron muchas dificultades y desafios de los 
 
 GitHub: [GonzaloQuirogaS](https://github.com/GonzaloQuirogaS)
 
-### Ejecucion del proyecto
+## Ejecucion del proyecto
 
 Para ejecutar el proyecto se tiene que ejecutar la clase main llamada "SpringEcommerceApplication"
 
